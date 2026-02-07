@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== 主题变量定义 ===== */
+
+/* 霓虹风格（默认） */
+:root,
+[data-theme="neon"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent: #00ff88;
+  --accent-secondary: #00d9ff;
+  --border: #475569;
+  --danger: #ef4444;
+  --code-bg: #1a1a2e;
+  --code-text: #00ff88;
+}
+
+/* GitHub 风格 */
+[data-theme="github"] {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --accent: #58a6ff;
+  --accent-secondary: #79c0ff;
+  --border: #30363d;
+  --danger: #f85149;
+  --code-bg: #161b22;
+  --code-text: #79c0ff;
+}
+
+/* 标准风格（浅色） */
+[data-theme="standard"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #e2e8f0;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --accent: #3b82f6;
+  --accent-secondary: #6366f1;
+  --border: #cbd5e1;
+  --danger: #ef4444;
+  --code-bg: #f1f5f9;
+  --code-text: #0f172a;
+}
+
+/* Dracula 风格 */
+[data-theme="dracula"] {
+  --bg-primary: #282a36;
+  --bg-secondary: #343746;
+  --bg-tertiary: #44475a;
+  --text-primary: #f8f8f2;
+  --text-secondary: #6272a4;
+  --accent: #bd93f9;
+  --accent-secondary: #ff79c6;
+  --border: #44475a;
+  --danger: #ff5555;
+  --code-bg: #282a36;
+  --code-text: #50fa7b;
+}
+
+/* Monokai 风格 */
+[data-theme="monokai"] {
+  --bg-primary: #272822;
+  --bg-secondary: #3e3d32;
+  --bg-tertiary: #49483e;
+  --text-primary: #f8f8f2;
+  --text-secondary: #75715e;
+  --accent: #f92672;
+  --accent-secondary: #fd971f;
+  --border: #49483e;
+  --danger: #f92672;
+  --code-bg: #272822;
+  --code-text: #a6e22e;
+}
+
+/* Solarized 风格（护眼） */
+[data-theme="solarized"] {
+  --bg-primary: #fdf6e3;
+  --bg-secondary: #eee8d5;
+  --bg-tertiary: #d9d2c2;
+  --text-primary: #073642;
+  --text-secondary: #586e75;
+  --accent: #268bd2;
+  --accent-secondary: #2aa198;
+  --border: #93a1a1;
+  --danger: #dc322f;
+  --code-bg: #eee8d5;
+  --code-text: #859900;
+}
+
+/* ===== 基础样式 ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ===== Markdown 预览样式 ===== */
+
+.markdown-preview {
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+/* 标题样式 */
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3,
+.markdown-preview h4,
+.markdown-preview h5,
+.markdown-preview h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--accent);
+}
+
+.markdown-preview h1 {
+  font-size: 2.2em;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.3em;
+}
+
+/* 霓虹风格 H1 渐变 */
+[data-theme="neon"] .markdown-preview h1 {
+  background: linear-gradient(90deg, #00ff88, #00d9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  border-bottom-color: rgba(0, 255, 136, 0.3);
+}
+
+[data-theme="neon"] .markdown-preview h2 {
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+[data-theme="neon"] .markdown-preview h3 {
+  color: #00d9ff;
+}
+
+/* Dracula 风格标题 */
+[data-theme="dracula"] .markdown-preview h1 {
+  background: linear-gradient(90deg, #bd93f9, #ff79c6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dracula"] .markdown-preview h2 {
+  color: #ff79c6;
+}
+
+[data-theme="dracula"] .markdown-preview h3 {
+  color: #8be9fd;
+}
+
+/* Monokai 风格标题 */
+[data-theme="monokai"] .markdown-preview h1 {
+  background: linear-gradient(90deg, #f92672, #fd971f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="monokai"] .markdown-preview h2 {
+  color: #a6e22e;
+}
+
+[data-theme="monokai"] .markdown-preview h3 {
+  color: #66d9ef;
+}
+
+/* 浅色主题标题 */
+[data-theme="standard"] .markdown-preview h1,
+[data-theme="standard"] .markdown-preview h2,
+[data-theme="solarized"] .markdown-preview h1,
+[data-theme="solarized"] .markdown-preview h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="standard"] .markdown-preview h3,
+[data-theme="solarized"] .markdown-preview h3 {
+  color: var(--accent);
+}
+
+.markdown-preview h2 {
+  font-size: 1.7em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3em;
+}
+
+.markdown-preview h3 {
+  font-size: 1.4em;
+}
+
+.markdown-preview h4 {
+  font-size: 1.1em;
+  color: var(--accent-secondary);
+}
+
+.markdown-preview p {
+  margin: 1em 0;
+}
+
+.markdown-preview a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.markdown-preview a:hover {
+  text-decoration: underline;
+}
+
+.markdown-preview code {
+  background: var(--bg-tertiary);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: var(--code-text);
+}
+
+.markdown-preview pre {
+  margin: 1em 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.markdown-preview pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.markdown-preview ul,
+.markdown-preview ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.markdown-preview li {
+  margin: 0.5em 0;
+}
+
+.markdown-preview blockquote {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-left: 4px solid var(--accent);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.markdown-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+.markdown-preview th,
+.markdown-preview td {
+  border: 1px solid var(--border);
+  padding: 0.75em 1em;
+  text-align: left;
+}
+
+.markdown-preview th {
+  background: var(--bg-tertiary);
+  font-weight: 600;
+}
+
+.markdown-preview hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+.markdown-preview img {
+  max-width: 100%;
+  border-radius: 8px;
+}

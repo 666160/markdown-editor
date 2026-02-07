@@ -1,0 +1,28 @@
+# 依赖目录
+node_modules/
+
+# 构建输出
+dist/
+
+# 本地环境变量
+.env
+.env.local
+.env.*.local
+
+# 编辑器配置
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 操作系统缓存
+.DS_Store
+Thumbs.db
+
+# 日志
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript 缓存
+*.tsbuildinfo
