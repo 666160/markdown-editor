@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 
 const SETTINGS_STORAGE_KEY = 'app-settings';
 

@@ -13,7 +13,7 @@ interface EditorToolbarProps {
 }
 
 // 编辑器工具栏组件
-export function EditorToolbar({ textareaRef, onInsert }: EditorToolbarProps) {
+export function EditorToolbar({ onInsert }: EditorToolbarProps) {
 
     // 工具栏按钮配置
     const actions: ToolbarAction[] = [
