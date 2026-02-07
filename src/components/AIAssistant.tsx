@@ -34,7 +34,7 @@ export function AIAssistant({ editorRef, onClose }: AIAssistantProps) {
     }, [apiKey, baseUrl, model]);
 
     // 获取选中文本
-    const getSelectedText = () => {
+    const getSelectedText = () => { 
         return editorRef.current?.getSelectedText() || '';
     };
 
